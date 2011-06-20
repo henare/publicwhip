@@ -20,7 +20,7 @@ $hidden_hash_var='';
 
 define('HIDDEN_HASH_VAR', $hidden_hash_var);
 
-# TWig templates directory
-define('TEMPLATES_DIRECTORY', '/path/to/templates');
+# Twig templates directory
+define('HTML_TEMPLATES_DIRECTORY', '/path/to/templates');
 
 ?>
