@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>{% block title %}{% endblock %} - The Public Whip</title>
+  <link rel="stylesheet" type="text/css" href="/publicwhip.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/publicwhip_print.css" media="print">
+  {% if colour_scheme == 'default' %}
+  <link rel="stylesheet" type="text/css" href="/css/default.css" media="all">
+  {% endif %}
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.publicwhip.org.uk/feeds/interestingdivisions.xml" />
+  <script type="text/javascript" src="/publicwhip.js"></script>
+  <script>
+  {% raw %}
+  <!--
+  function givefocus(field) {
+      if (!document || !document.getElementById)
+          return
+      f = document.getElementById(field)
+      if (f)
+          f.focus()
+  }
+  function secondnav_goto() {
+      if (!document) return
+      if (!document.getElementById) return
+      var el = document.getElementById('r')
+      window.location=el.options[el.selectedIndex].value
+  }
+  function secondnav_goto2() {
+      if (!document) return
+      if (!document.getElementById) return
+      var el = document.getElementById('r2')
+      window.location=el.options[el.selectedIndex].value
+  }
+  function secondnav_goto3() {
+      if (!document) return
+      if (!document.getElementById) return
+      var el = document.getElementById('r3')
+      window.location=el.options[el.selectedIndex].value
+  }
+  function ClickSup(nsup) {
+      var el = document.getElementById('footnote-' + nsup);
+      el.style.backgroundColor = (el.style.backgroundColor ? "" : "#ffff77");
+      var sups = document.getElementsByTagName("sup");
+      for (var i = 0; i < sups.length; i++)
+          if (sups[i].className == "sup-" + nsup)
+              sups[i].style.backgroundColor = el.style.backgroundColor;
+      }
+  // -->
+  {% endraw %}
+</script>
+</head>
+<body align="center">
+<script type="text/javascript" src="walterzorn/wz_tooltip.js"></script>
+<center>
+<!-- hold the maximum width of the content -->
+<table align="center" class="container" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td colspan="2" style="font-size:140%; padding:1em; background-color: #d0ffd0; color:#00000">
+      Deadline! X days to go. Find Public Whip a good institutional home, or it'll shut down.
+      <a href="http://www.publicwhip.org.uk/openletter.php">Read our open letter</a>.
+    </td>
+  </tr>
+  <!-- the site logo -->
+  <tr>
+    <td class="identity" colspan="1"><a href="/index.php"><img src="/thepublicwhip.gif" alt="The Public Whip"></a></td>
+    <td class="searchtitlebar" align="right" valign="middle" colspan="2">
+      <form class="searchtitlebarform" action="/search.php" name="pw">
+        Search: <input maxLength="256" size="12" id="query" name="query" onblur="fadeout(this)" onfocus="fadein(this)" value=""> <input type="submit" value="Go" name="button">
+      </form>
+     <form action="/newsletters/signup.php" method="post">
+       Newsletter (<a href="/newsletters/signup.php">info</a>): <input type="text" name="email" id="email" onblur="fadeout(this)" onfocus="fadein(this)" value="" size="12" maxlength="50">
+     <input type="submit" name="submit" value="Go">
+     </form>
+    </td>
+  </tr>
+  <!-- the main site navigation -->
+  <tr class="headers">
+    <td class="pagenavlinks" colspan="3">
+      <div class="pagenavlinks" style="float:right">
+      <!--ACCOUNTBEGIN-->
+      <!--ACCOUNTEND-->
+      </div>
+      <a title="Front page and site highlights" href="/index.php">Home</a>
+      <!--NEWSLETTERBEGIN-->
+      <!--NEWSLETTEREND-->
+      <a title="List of all votes in Parliament" href="/divisions.php">Divisions</a>
+      <a title="List of all Members of House of Commons" href="/mps.php">MPs</a>
+      <a title="List of all Members of House of Lords" href="/mps.php?house=lords">Lords</a>
+      <a title="List of all Members of the Scottish Parliament" href="/mps.php?house=scotland">MSPs</a>
+      <a title="Help to analyze MP's votes" href="/policies.php">Policies</a>
+      <a title="Chat with other users" href="/forum"><strong>Forum</strong></a>
+      <a title="Help run the Public Whip project" href="/project/index.php">Join Us</a>
+      <a title="Frequently asked questions" href="/faq.php">Help / FAQ</a>
+    </td>
+  </tr>
+  
+  <!-- the rest of the content -->
+  <tr>
+    <td colspan="3" class="content">
+      {% if h1title %}<h1>{{ h1title }}</h1>{% endif %}
+    {% block content %}{% endblock %}
+    <!-- the end of the major content -->
+    </td>
+  </tr>
+  <!-- the footer section -->
+  <tr class="headers">
+  <td class="bgcolour" colspan="3">
+    <p class="footer">
+  <span class="footerleft">
+  <a title="Frequently asked questions" href="/faq.php#whatis">About us</a>
+  <a title="Send comments, problems or suggestions" href="/email.php">Contact us</a>
+  <a title="Fodder for your spreadsheet" href="/project/data.php">Data feeds</a>
+  <a title="Public Whip is open source software" href="/project/code.php">Source code</a>
+ <!-- Open Knowledge Link -->
+<a href="http://okd.okfn.org/">
+<img style="vertical-align: bottom" alt="This material is Open Knowledge" border="0"
+src="/images/ok_80x23_red_green.png" /></a>
+<!-- /Open Knowledge Link -->
+</span>
+<span class="footerright">
+<img width="0" height="23" style="vertical-align: bottom"> <!-- nasty fake image to get vspacing same as footerleft -->
+<a title="Divisions in your news reader" href="/faq.php#rss">RSS</a>
+<a title="Details on the free license for this data" href="/faq.php#legal">Legal information</a>
+</span>
+<!-- this stuff appears centred
+<a href="/newsletters/signup.php">Newsletter</a>
+-->
+</p></td></tr>
+
+<!-- hold the maximum width of the content -->
+</table>
+
+</center>
+</body>
+</html>

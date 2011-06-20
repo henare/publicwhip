@@ -34,6 +34,8 @@ require_once $toppath . "config.php";
 require_once $toppath . "cache-tools.inc";
 require_once $toppath . "debug_print_backtrace.inc";
 
+require_once $toppath . '../lib/template.php';
+
 ini_set('log_errors', 'On');
 ini_set('log_errors_max_len', '0');
 ini_set('error_log', null);
