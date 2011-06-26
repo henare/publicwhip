@@ -50,7 +50,7 @@
 </script>
 </head>
 <body align="center">
-<script type="text/javascript" src="walterzorn/wz_tooltip.js"></script>
+<script type="text/javascript" src="/walterzorn/wz_tooltip.js"></script>
 <center>
 <!-- hold the maximum width of the content -->
 <table align="center" class="container" cellpadding="0" cellspacing="0" border="0">
@@ -72,6 +72,11 @@
     <td class="pagenavlinks" colspan="3">
       <div class="pagenavlinks" style="float:right">
       <!--ACCOUNTBEGIN-->
+      {% if user.logged_in %}
+      <a title="Change account settings, such as whether you get the newsletter" href="/account/settings.php">You are: {{ user.name }}</a> <a title="Make your browser forget that you are logged into The Public Whip as {{ user.name }}" href="/account/logout.php">Logout</a>
+      {% else %}
+      <a title="Register to chat on the forum or make/edit policies" href="/account/register.php">Sign Up</a> <a title="Login to edit policies or change your newsletter settings" href="/account/settings.php">Login</a>
+      {% endif %}
       <!--ACCOUNTEND-->
       </div>
       <a title="Front page and site highlights" href="/index.php">Home</a>
