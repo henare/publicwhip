@@ -4,9 +4,9 @@
   <title>{% block title %}{% endblock %} - The Public Whip</title>
   <link rel="stylesheet" type="text/css" href="/publicwhip.css" media="all">
   <link rel="stylesheet" type="text/css" href="/publicwhip_print.css" media="print">
-  {% if colour_scheme == 'default' %}
-  <link rel="stylesheet" type="text/css" href="/css/default.css" media="all">
-  {% endif %}
+  <link rel="stylesheet" type="text/css" href="/css/{{ colour_scheme }}.css" media="all">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.publicwhip.org.uk/feeds/interestingdivisions.xml" />
   <script type="text/javascript" src="/publicwhip.js"></script>
   <script>
@@ -54,12 +54,6 @@
 <center>
 <!-- hold the maximum width of the content -->
 <table align="center" class="container" cellpadding="0" cellspacing="0" border="0">
-  <tr>
-    <td colspan="2" style="font-size:140%; padding:1em; background-color: #d0ffd0; color:#00000">
-      Deadline! X days to go. Find Public Whip a good institutional home, or it'll shut down.
-      <a href="http://www.publicwhip.org.uk/openletter.php">Read our open letter</a>.
-    </td>
-  </tr>
   <!-- the site logo -->
   <tr>
     <td class="identity" colspan="1"><a href="/index.php"><img src="/thepublicwhip.gif" alt="The Public Whip"></a></td>
