@@ -38,11 +38,31 @@ abstract class PW_Template
 
 class PW_Template_HTML extends PW_Template
 {
+  private $request;
+  private $user;
+  
   public function __construct($filename, $colour_scheme = 'default')
   {
     $this->template_dir = HTML_TEMPLATES_DIRECTORY;
     parent::__construct($filename);
     $this->assign('colour_scheme', $colour_scheme);
+    
+    // Obtain request data
+    $this->request = array();
+    $this->request['request_uri'] = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+    
+    $this->assign('request', $this->request);
+    
+    // Get user data
+    $this->user = array();
+    $this->user['logged_in'] = user_isloggedin();
+    
+    if ($this->user['logged_in'])
+    {
+      $this->user['name'] = user_getname();
+    }
+    
+    $this->assign('user', $this->user);
   }
 }
 
