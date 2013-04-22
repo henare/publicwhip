@@ -52,7 +52,7 @@ my %membertoperson;
 printf "[%4d-%02d-%02d %02d:%02d:%02d] %s: %s\n",$year+1900,$mon+1,$mday,$hour,$min,$sec,"memxml2db","Setting up twig";
 my $twig = XML::Twig->new(
     twig_handlers => { 
-            'constituency' => \&loadcons, 
+            'division' => \&loadcons,
             'member' => \&loadmember, 
             'lord' => \&loadmember, 
             'member_sp' => \&loadmember,
@@ -245,7 +245,7 @@ sub loadcons
     if (defined($parliament) && ($parliament eq 'edinburgh')) {
         $house = 'scotland';
     } else {
-        $house = 'commons';
+        $house = 'representatives';
     }
 
     my $main_name = 1;
