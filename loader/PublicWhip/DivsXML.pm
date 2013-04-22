@@ -348,11 +348,11 @@ sub loaddivision {
         $clock_time = '';
     }
 
-    my $listeltname = 'mplist';
+    my $listeltname = 'memberlist';
     $listeltname = 'lordlist' if $house eq 'lords';
     $listeltname = 'msplist' if $house eq 'scotland';
 
-    my $votereltname = 'mpname';
+    my $votereltname = 'member';
     $votereltname = 'lord' if $house eq 'lords';
     $votereltname = 'mspname' if $house eq 'scotland';
 
