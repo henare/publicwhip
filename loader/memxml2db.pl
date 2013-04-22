@@ -72,9 +72,9 @@ $twig->parsefile("$members_location/people.xml");
 ($sec,$min,$hour,$mday,$mon,$year)=localtime(time);
 printf "[%4d-%02d-%02d %02d:%02d:%02d] %s: %s\n",$year+1900,$mon+1,$mday,$hour,$min,$sec,"memxml2db","Parsing ministers.xml";
 $twig->parsefile("$members_location/ministers.xml");
-# ($sec,$min,$hour,$mday,$mon,$year)=localtime(time);
-# printf "[%4d-%02d-%02d %02d:%02d:%02d] %s: %s\n",$year+1900,$mon+1,$mday,$hour,$min,$sec,"memxml2db","Parsing all-members.xml";
-# $twig->parsefile("$members_location/all-members.xml");
+($sec,$min,$hour,$mday,$mon,$year)=localtime(time);
+printf "[%4d-%02d-%02d %02d:%02d:%02d] %s: %s\n",$year+1900,$mon+1,$mday,$hour,$min,$sec,"memxml2db","Parsing representatives.xml";
+$twig->parsefile("$members_location/representatives.xml");
 # ($sec,$min,$hour,$mday,$mon,$year)=localtime(time);
 # printf "[%4d-%02d-%02d %02d:%02d:%02d] %s: %s\n",$year+1900,$mon+1,$mday,$hour,$min,$sec,"memxml2db","Parsing all-members-2010.xml";
 # $twig->parsefile("$members_location/all-members-2010.xml");
@@ -113,7 +113,7 @@ sub loadmember
     # print "house: " . $house . "\n";
     my $gid = $memb->att('id');
     if ($gid =~ m#uk.org.publicwhip/member/#) {
-        die unless ($house eq 'commons' || $house eq 'scotland');
+        die unless ($house eq 'representatives' || $house eq 'scotland');
     } elsif ($gid =~ m#uk.org.publicwhip/lord/#) {
         die if $house ne 'lords';
     } else {
@@ -137,7 +137,7 @@ sub loadmember
     my $title = $memb->att('title');
     my $firstname = $memb->att('firstname');
     my $lastname = $memb->att('lastname');
-    my $constituency = $memb->att('constituency');
+    my $constituency = $memb->att('division');
     my $fromdate = $memb->att('fromdate');
     my $todate = $memb->att('todate');
     if ($todate le '1997-04-08') {
