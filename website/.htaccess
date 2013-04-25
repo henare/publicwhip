@@ -21,8 +21,9 @@ RedirectPermanent /code.php http://www.publicwhip.org.uk/project/code.php
 RedirectPermanent /mp-info.xml http://www.publicwhip.org.uk/feeds/mp-info.xml
 RedirectPermanent /dreammp.php http://www.publicwhip.org.uk/policy.php
 
-RewriteCond %{HTTP_HOST} !^(www\.publicwhip\.org\.uk|pw\.live|publicwhip-v1.localdomain)$
-RewriteRule (.*) http://www.publicwhip.org.uk/$1 [R=301,L]
+# RewriteCond %{HTTP_HOST} !^(www\.publicwhip\.org\.uk|pw\.live|publicwhip-v1.localdomain)$
+# RewriteRule (.*) http://www.publicwhip.org.uk/$1 [R=301,L]
+
 Options +FollowSymLinks
 RewriteEngine On
 RewriteCond %{QUERY_STRING} (.*)Louise_Bagshawe(.*)
