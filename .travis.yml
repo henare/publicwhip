@@ -1,0 +1,3 @@
+# Builds the Rails version only
+gemfile: rails/Gemfile
+script: cd rails && rake
